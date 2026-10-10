@@ -15,6 +15,8 @@ public class LibraryManagementSystem {
             System.out.println("2. View all books");
             System.out.println("3. Exit");
             System.out.println("4. Search by book ID");
+            System.out.println("5. Issue a book");
+            System.out.println("6. Return a book");
             System.out.print("Enter your choice: ");
 
             String choice = scanner.nextLine().trim();
@@ -43,8 +45,8 @@ public class LibraryManagementSystem {
                     if (books.isEmpty()) {
                         System.out.println("No books available. Add a book first.");
                     } else {
-                        System.out.println("\nID | Title | Author");
-                        System.out.println("---------------------------");
+                        System.out.println("\nID | Title | Author | Status");
+                        System.out.println("--------------------------------");
 
                         for (Book book : books) {
                             book.displayDetails();
@@ -68,7 +70,7 @@ public class LibraryManagementSystem {
 
                     for (Book book : books) {
                         if (String.valueOf(book.getId()).equals(searchId)) {
-                            System.out.println("\nID | Title | Author");
+                            System.out.println("\nID | Title | Author | Status");
                             book.displayDetails();
                             found = true;
                             break;
@@ -81,8 +83,46 @@ public class LibraryManagementSystem {
                     break;
                 }
 
+                case "5": {
+                    System.out.print("Enter the book ID to issue: ");
+                    String issueId = scanner.nextLine().trim();
+                    boolean found = false;
+
+                    for (Book book : books) {
+                        if (String.valueOf(book.getId()).equals(issueId)) {
+                            book.issueBook();
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("No book found with that ID.");
+                    }
+                    break;
+                }
+
+                case "6": {
+                    System.out.print("Enter the book ID to return: ");
+                    String returnId = scanner.nextLine().trim();
+                    boolean found = false;
+
+                    for (Book book : books) {
+                        if (String.valueOf(book.getId()).equals(returnId)) {
+                            book.returnBook();
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("No book found with that ID.");
+                    }
+                    break;
+                }
+
                 default:
-                    System.out.println("Invalid choice. Please enter 1, 2, 3, or 4.");
+                    System.out.println("Invalid choice. Please enter 1 to 6.");
             }
         }
 

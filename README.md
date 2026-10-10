@@ -10,6 +10,9 @@ developed step by step as I learn Java and Git.
 - Search for a book by its ID.
 - Reject empty titles and author names.
 - Handle invalid menu choices.
+- Issue and return books.
+- Display whether each book is Available or Issued.
+- Prevent issuing an already issued book.
 
 ## Technologies
 
@@ -48,6 +51,7 @@ Books are stored in memory and are lost when the program closes.
 - Issue and return books.
 - Update and delete book records.
 - Save books permanently using MySQL and JDBC.
+- Issue and return books.
 
 ## Author
 
