@@ -10,6 +10,9 @@ and track whether books are available or issued.
 - Search for books by ID.
 - Issue and return books.
 - Prevent issuing an already issued book.
+- Update a book's title and author.
+- Delete available books after confirmation.
+- Prevent deletion of issued books.
 - Validate empty fields and invalid book IDs.
 - Preserve book records and issue status after restarting.
 
@@ -93,6 +96,8 @@ an encrypted MySQL connection. MySQL must be running.
 - DatabaseTest.java: Standalone connection check.
 - schemas.sql: Creates the database and books table.
 - Book.java: Book model from the earlier in-memory version;
+- BookEditor.java: Updates book titles and authors.
+- BookDeleter.java: Deletes available books after confirmation.
   not used by the current JDBC application.
 
 ## Manual Checks Performed
@@ -112,6 +117,7 @@ details, due dates or loan history.
 
 - Update and delete book records.
 - Track borrowers and loan dates.
+- Update and delete book records.
 
 ## Author
 

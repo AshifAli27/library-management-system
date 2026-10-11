@@ -22,6 +22,8 @@ public class LibraryManagementSystem {
                 System.out.println("4. Search by book ID");
                 System.out.println("5. Issue a book");
                 System.out.println("6. Return a book");
+                System.out.println("7. Update book details");
+                System.out.println("8. Delete a book");
                 System.out.print("Enter your choice: ");
 
                 String choice = scanner.nextLine().trim();
@@ -56,10 +58,15 @@ public class LibraryManagementSystem {
                                 connection, readBookId(scanner), false
                             );
                             break;
-
+                        case "7":
+                            BookEditor.update(connection, readBookId(scanner), scanner);
+                            break;
+                        case "8":
+                         BookDeleter.delete(connection, readBookId(scanner), scanner);
+                            break;
                         default:
                             System.out.println(
-                                "Invalid choice. Please enter 1 to 6."
+                                "Invalid choice. Please enter 1 to 8."
                             );
                     }
                 } catch (NumberFormatException error) {
